@@ -41,20 +41,7 @@ from .utils import combine_jsons, reach_json
 
 #Set Global Variables
 
-try:
-    ACCESS_KEY_ID = app.get_custom_setting('Access_key_ID')
-    ACCESS_KEY_SECRET = app.get_custom_setting('Secret_access_key')
-except Exception:
-    ACCESS_KEY_ID = ''
-    ACCESS_KEY_SECRET = ''
-
-#AWS Data Connectivity
-#start session
-SESSION = boto3.Session(
-    aws_access_key_id=ACCESS_KEY_ID,
-    aws_secret_access_key=ACCESS_KEY_SECRET
-)
-s3 = SESSION.resource('s3')
+s3 = boto3.resource('s3')
 
 BUCKET_NAME = 'streamflow-app-data'
 BUCKET = s3.Bucket(BUCKET_NAME) 
