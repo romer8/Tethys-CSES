@@ -41,11 +41,9 @@ from .utils import combine_jsons, reach_json
 
 #Set Global Variables
 
-s3 = boto3.resource('s3')
-
 BUCKET_NAME = 'streamflow-app-data'
-BUCKET = s3.Bucket(BUCKET_NAME) 
 S3 = boto3.resource('s3', config=Config(signature_version=UNSIGNED))
+BUCKET = S3.Bucket(BUCKET_NAME) 
 
 #Controller base configurations
 BASEMAPS = [
